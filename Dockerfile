@@ -6,13 +6,16 @@ WORKDIR /app
 
 # Copy package files and install dependencies
 COPY package.json package-lock.json* ./
-RUN npm install --production
+RUN npm install
 
 # Copy the rest of the source code
 COPY . .
 
 # Build TypeScript
 RUN npm run build
+
+# Remove devDependencies for smaller image
+RUN npm prune --production
 
 # Expose port (default for Express)
 EXPOSE 3000
