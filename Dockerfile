@@ -21,4 +21,4 @@ RUN npm prune --production
 EXPOSE 3000
 
 # Start the app
-CMD ["node", "dist/adapters/http/index.js"]
+CMD ["node", "dist/src/adapters/http/index.js"]
