@@ -14,6 +14,9 @@ COPY . .
 # Build TypeScript
 RUN npm run build
 
+# Move data directory into dist so it is available at runtime
+RUN cp -r data dist/
+
 # Remove devDependencies for smaller image
 RUN npm prune --production
 
